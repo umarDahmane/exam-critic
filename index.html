@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>الشواهد النقدية الجاهلية - نسخة المبتدئين</title>
+<meta name="description" content="الإجابات المقترحة للامتحان الكتابي الأول في النقد الأدبي القديم: انقر على الشاهد لتظهر الإجابة وسلّم التنقيط.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5efe2; --paper:#fffaf0; --ink:#232b2e; --muted:#667074; --line:#e3d8c2;
+  --accent:#8c4a1f; --accent-2:#1d5e5a; --gold:#b8862b; --chip:#efe4cb;
+  --total-bg:#1d5e5a; --total-ink:#ffffff; --active-bg:#fbf0dc;
+  --shadow:0 1px 2px rgba(60,40,10,.08),0 10px 28px rgba(60,40,10,.07);
+  --serif:'Amiri','Noto Naskh Arabic','Traditional Arabic',serif;
+  --sans:'Cairo','Segoe UI',Tahoma,'Noto Naskh Arabic',sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#14181a; --paper:#1b2023; --ink:#ece6d8; --muted:#a3a9a6; --line:#2f373a;
+    --accent:#e0955a; --accent-2:#5cc0b8; --gold:#e0b45a; --chip:#2a3235;
+    --total-bg:#5cc0b8; --total-ink:#0e1517; --active-bg:#252b2e; --shadow:none;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.95}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 64px}
+
+/* header */
+.hero{padding:44px 0 22px;text-align:center}
+.eyebrow{font-size:.85rem;color:var(--accent);font-weight:700;letter-spacing:.01em}
+h1{font-family:var(--serif);font-size:clamp(2rem,5.5vw,3rem);margin:.1em 0 .15em;line-height:1.35;font-weight:700}
+.lead{color:var(--muted);max-width:640px;margin:0 auto;font-size:.98rem}
+
+/* exam card */
+.exam{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px 24px;box-shadow:var(--shadow);margin-top:18px}
+.exam h2{font-size:1rem;margin:0 0 6px;color:var(--accent);font-weight:700}
+.exam p{margin:.2em 0 .8em}
+.exam ol{list-style:none;margin:0;padding:0;counter-reset:q}
+.exam li{counter-increment:q;display:flex;align-items:center;gap:12px;padding:7px 0;border-top:1px dashed var(--line)}
+.exam li::before{content:counter(q);flex:none;width:28px;height:28px;border-radius:50%;background:var(--chip);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.exam li span{flex:1}
+.mark{flex:none;background:var(--chip);color:var(--accent);border-radius:999px;padding:1px 12px;font-weight:700;font-size:.88rem;white-space:nowrap;line-height:1.8}
+.exam .sum{display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--line);margin-top:6px;padding-top:10px;font-weight:700}
+
+/* picker */
+.pick-title{display:flex;align-items:baseline;gap:10px;margin:34px 0 12px}
+.pick-title h2{margin:0;font-size:1.25rem;font-family:var(--serif);font-weight:700}
+.pick-title small{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:14px}
+.card{font:inherit;color:inherit;text-align:right;cursor:pointer;background:var(--paper);border:1.5px solid var(--line);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow);transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.card:hover{transform:translateY(-2px);border-color:var(--gold)}
+.card:focus-visible{outline:3px solid var(--accent-2);outline-offset:2px}
+.card[aria-pressed="true"]{border-color:var(--accent);background:var(--active-bg)}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.card[aria-pressed="true"] .num{background:var(--accent-2);color:var(--total-ink)}
+.card .name{font-weight:700;line-height:1.5}
+.card .tag{font-size:.82rem;color:var(--muted)}
+.card .snip{font-family:var(--serif);font-size:1.18rem;line-height:1.7;color:var(--accent);border-top:1px dashed var(--line);padding-top:6px;margin-top:2px}
+.card .go{font-size:.82rem;color:var(--accent-2);font-weight:600}
+
+/* answer panel */
+.panel{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:14px}
+.panel[hidden]{display:none}
+.phead{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:22px 26px;background:linear-gradient(135deg,var(--chip),transparent 80%);border-bottom:1px solid var(--line)}
+.phead h2{font-family:var(--serif);font-size:clamp(1.5rem,4vw,2rem);margin:.05em 0;line-height:1.4}
+.phead .concept{color:var(--muted);font-size:.95rem}
+.chip-total{flex:none;background:var(--total-bg);color:var(--total-ink);border-radius:14px;padding:6px 16px;font-weight:700;text-align:center;line-height:1.5}
+.chip-total b{display:block;font-size:1.5rem}
+.chip-total span{font-size:.78rem;opacity:.9}
+.item{padding:22px 26px;border-top:1px solid var(--line);animation:rise .4s ease both}
+.item:first-of-type{border-top:0}
+.item:nth-of-type(2){animation-delay:.05s}.item:nth-of-type(3){animation-delay:.1s}.item:nth-of-type(4){animation-delay:.15s}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ihead{display:flex;align-items:center;gap:12px;margin:0 0 12px}
+.ihead .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.92rem}
+.ihead h3{margin:0;font-size:1.05rem;flex:1;line-height:1.6}
+.item p{margin:.5em 0}
+.item p strong{color:var(--accent)}
+.item p em{font-style:normal;color:var(--accent-2);font-weight:600}
+
+/* shahid block */
+.shahid{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.cap{margin:.9em 0 .2em !important;color:var(--muted);font-size:.9rem}
+.cap:first-child{margin-top:0 !important}
+.quote{font-family:var(--serif);font-size:1.3rem;line-height:2;margin:.2em 0 !important}
+.verse{font-family:var(--serif);font-size:1.38rem;line-height:2.05;display:grid;grid-template-columns:1fr 1fr;column-gap:2.2rem;padding:2px 0;border-bottom:1px dotted var(--line)}
+.verse:last-of-type{border-bottom:0}
+.verse .a{color:var(--accent)} .verse .b{color:var(--accent-2)}
+em.hl{font-style:normal;background:rgba(184,134,43,.24);border-radius:5px;padding:0 .2em;color:inherit;font-weight:700}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-inline-end:6px}
+.legend .la{background:var(--accent)} .legend .lb{background:var(--accent-2)}
+.hint{color:var(--muted);font-size:.88rem;margin:0 0 8px !important}
+.src{color:var(--muted);font-size:.85rem;margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.refs{color:var(--muted);font-size:.86rem;margin-top:12px}
+
+.ans{background:var(--chip);border-radius:12px;padding:12px 16px;margin:.2em 0 .5em !important;font-size:1.02rem}
+.steps{list-style:none;margin:.5em 0 0;padding:0;counter-reset:st}
+.steps li{counter-increment:st;position:relative;padding:9px 0;padding-inline-start:42px;border-top:1px dashed var(--line)}
+.steps li:first-child{border-top:0}
+.steps li::before{content:counter(st);position:absolute;inset-inline-start:0;top:11px;width:28px;height:28px;border-radius:50%;background:var(--accent-2);color:var(--total-ink);display:grid;place-items:center;font-weight:700;font-size:.85rem;line-height:1}
+.steps li.star{background:var(--chip);border-radius:10px;border-top:0;margin:6px 0;padding-inline-end:12px;padding-inline-start:46px}
+.steps li.star::before{content:"★";background:var(--gold);color:#fff;inset-inline-start:8px}
+.steps b{color:var(--accent)}
+.tip{color:var(--muted);font-size:.9rem;margin:0 0 6px !important}
+details.words{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:8px 16px;background:var(--paper)}
+details.words summary{cursor:pointer;font-weight:600;color:var(--accent-2)}
+details.words summary:focus-visible{outline:3px solid var(--accent-2);outline-offset:2px;border-radius:6px}
+details.words dl{margin:8px 0 2px;display:grid;grid-template-columns:max-content 1fr;gap:4px 16px}
+details.words dt{font-family:var(--serif);font-size:1.15rem;color:var(--accent);font-weight:700}
+details.words dd{margin:0;font-size:.95rem;align-self:center}
+@media (max-width:640px){details.words dl{grid-template-columns:1fr;gap:0}details.words dd{margin-bottom:8px}}
+.total{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;background:var(--total-bg);color:var(--total-ink);padding:16px 26px;font-weight:700}
+.total .eq{font-size:1.05rem}
+.total b{font-size:1.35rem}
+.pnav{display:flex;flex-wrap:wrap;gap:10px;padding:16px 26px;justify-content:space-between;align-items:center}
+.btn{font:inherit;font-size:.92rem;font-weight:600;cursor:pointer;background:transparent;color:var(--accent-2);border:1.5px solid var(--line);border-radius:999px;padding:4px 18px}
+.btn:hover{border-color:var(--accent-2)}
+.btn:focus-visible{outline:3px solid var(--accent-2);outline-offset:2px}
+.btn[disabled]{opacity:.4;cursor:default}
+.pnav .grp{display:flex;gap:10px;flex-wrap:wrap}
+
+.empty{margin-top:26px;text-align:center;color:var(--muted);border:1.5px dashed var(--line);border-radius:18px;padding:26px 16px}
+footer{margin-top:40px;color:var(--muted);font-size:.86rem;text-align:center;line-height:1.9}
+footer a{color:var(--accent-2)}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .exam,.item,.phead,.pnav,.total{padding-inline:16px}
+  .phead{flex-direction:column;align-items:flex-start}
+  .verse{grid-template-columns:1fr;font-size:1.25rem;padding:6px 0}
+  .verse .b{padding-inline-start:1.6rem}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .item{animation:none}.card{transition:none}.card:hover{transform:none}
+}
+@media print{
+  body{background:#fff;color:#000}
+  .hero,.exam,.pick-title,.grid,.empty,.pnav,footer{display:none !important}
+  .panel{box-shadow:none;border:0}
+  .item{animation:none;break-inside:avoid}
+  .total{background:#fff;color:#000;border-top:2px solid #000}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">النقد الأدبي القديم — نسخة المبتدئين</div>
+    <h1>الشواهد النقدية في العصر الجاهلي</h1>
+    <p class="lead">إجابات مبسّطة خطوة بخطوة: نفهم الشاهد، ثم القضية، ثم المعيار، ثم نناقش الحكم. انقر على الشاهد لتظهر الإجابة والعلامة المقابلة لكل بند.</p>
+  </header>
+
+  <section class="exam" aria-labelledby="exam-h">
+    <h2 id="exam-h">الامتحان الكتابي الأول في مادة النقد الأدبي القديم</h2>
+    <p>من خلال ما تحفظ من شواهد النقد الأدبي في العصر الجاهلي، اختر شاهدًا واحدًا، ثم انطلق منه لإنجاز قراءة نقدية، وذلك وفق ما يأتي:</p>
+    <ol id="scheme"></ol>
+    <div class="sum"><span>المجموع</span><span class="mark" id="sum-mark"></span></div>
+  </section>
+
+  <div class="pick-title">
+    <h2>اختر الشاهد</h2>
+    <small>ستة شواهد — انقر على أحدها</small>
+  </div>
+  <div class="grid" id="grid" role="group" aria-label="الشواهد النقدية"></div>
+
+  <div class="empty" id="empty">لم تُختَر إجابة بعدُ. انقر على أحد الشواهد أعلاه.</div>
+  <article class="panel" id="panel" hidden aria-live="polite" tabindex="-1"></article>
+
+  <footer>
+    <p>الإجابات مقترحة للاسترشاد، وتُقبل كل إجابة سليمة تستند إلى النص والمرجعين.</p>
+    <p>المرجعان: شوقي ضيف، «النقد» (دار المعارف، ط٥)؛ سلوم، «النقد العربي القديم بين الاستقراء والتأليف».<br>
+    الأصل: <a href="https://umardahmane.github.io/critic1/" target="_blank" rel="noopener">الشواهد النقدية في العصر الجاهلي</a></p>
+  </footer>
+</div>
+
+<noscript><p style="text-align:center;padding:20px">يتطلب هذا التطبيق تفعيل جافاسكربت.</p></noscript>
+
+<script>
+(function(){
+  'use strict';
+
+  /* سلّم التنقيط */
+  var ITEMS = [
+    {t:'الشاهد مضبوطًا بالشكل', mark:2},
+    {t:'القضية النقدية التي يثيرها', mark:1},
+    {t:'المعيار النقدي الذي يستند إليه الحكم النقدي فيه', mark:1},
+    {t:'ناقش الحكم النقدي', mark:2}
+  ];
+  var TOTAL = ITEMS.reduce(function(s,i){return s+i.mark;},0);   // 6
+  var SUMSTR = ITEMS.map(function(i){return i.mark;}).join(' + ');
+
+  /* الشواهد والإجابات المقترحة */
+  var W = [
+
+  /* ───────── 1 ───────── */
+  {
+    id:'w1', title:'امرؤ القيس والتوأم اليشكري', concept:'التمليط (المماتنة)',
+    snip:'أَحَارِ تَرَى بُرَيْقًا هَبَّ وَهْنًا',
+    legend:'<span><i class="la"></i>صدر البيت: امرؤ القيس</span><span><i class="lb"></i>عجز البيت: التوأم اليشكري</span>',
+    parts:[
+      {k:'p', x:'أَقْبَلَ امْرُؤُ القَيْسِ حَتَّى لَقِيَ التَّوْءَمَ اليَشْكُرِيَّ، وَكَانَ اسْمُهُ الحَارِثَ بْنَ قَتَادَةَ وَيُكَنَّى أَبَا شُرَيْحٍ، فَقَالَ لَهُ امْرُؤُ القَيْسِ: إِنْ كُنْتَ شَاعِرًا كَمَا تَقُولُ فَمَلِّطْ أَنْصَافَ مَا أَقُولُ.'},
+      {k:'v', s:'أَحَارِ تَرَى بُرَيْقًا هَبَّ وَهْنًا', e:'كَنَارِ مَجُوسَ تَسْتَعِرُ اسْتِعَارَا', a:'a', b:'b'},
+      {k:'v', s:'أَرِقْتُ لَهُ وَنَامَ أَبُو شُرَيْحٍ', e:'إِذَا مَا قُلْتُ قَدْ هَدَأَ اسْتَطَارَا', a:'a', b:'b'},
+      {k:'v', s:'كَأَنَّ حَنِينَهُ وَالرَّعْدَ فِيهِ', e:'عِشَارٌ وُلَّهٌ لَاقَتْ عِشَارَا', a:'a', b:'b'},
+      {k:'p', x:'… فَقَالَ امْرُؤُ القَيْسِ: لَا أَتَعَنَّتُ عَلَى أَحَدٍ بَعْدَ ذَلِكَ بِالشِّعْرِ.'}
+    ],
+    src:'بدائع البدائه، لابن ظافر الأزدي (ت ٦١٣ هـ).',
+    words:[['التمليط','مساجلة بين شاعرين، يقول كلٌّ منهما نصف بيت.'],['المماتنة','المقاومة والمطاولة.'],['بُرَيْق','تصغير برق؛ لمعان خفيف في السحاب.'],['وَهْنًا','ساعة من الليل.'],['اسْتَطَار','انتشر وارتفع.'],['عِشَار / وُلَّه','العِشار: نوق حوامل؛ والوُلَّه: جمع والهة، وهي التي فقدت ولدها.']],
+    q:'<p class="ans">القضية النقدية: <strong>التمليط (المماتنة الشعرية)</strong>؛ وهي مساجلة يقول فيها أحد الشاعرين نصف البيت، ويُتمّه الآخر بنصفٍ يوافقه في الوزن والقافية والمعنى.</p>',
+    m:'<p class="ans">المعيار: <strong>القدرة الشعرية</strong>؛ أي قدرة الشاعر على إتمام المعنى في حدود القيود التي يفرضها النصف الأول.</p>',
+    d:[
+      '<p><strong>الحكم:</strong> بعد المساجلة امتنع امرؤ القيس عن التعنّت على أحد بالشعر، وفي هذا اعترافٌ منه بقوة التوأم.</p>',
+      '<ol class="steps"><li><b>نفهم الشاهد:</b> ابتدأ امرؤ القيس نصف البيت، وأتمّه التوأم في كل مرة بنصفٍ يوافقه.</li><li><b>نناقش:</b> كان التوأم في وضعٍ أصعب؛ لأنه مقيَّد بمعنى ووزن وقافية سبقت، أما امرؤ القيس فكان حرًّا في الابتداء.</li><li><b>نفسّر الاعتراف:</b> لذلك يُفهم من امتناع امرئ القيس بعد ذلك عن التعنّت أنه سلّم بقوة خصمه.</li><li><b>إضافة تُقبل:</b> الشاهد يُظهر أن المنافسة الشعرية والمفاخرة كانتا من مظاهر النقد في البيئة الجاهلية.</li></ol>'
+    ],
+    refs:'للسياق العام: ضيف، النقد، ص ٢٦.'
+  },
+
+  /* ───────── 2 ───────── */
+  {
+    id:'w2', title:'النابغة وحسان بن ثابت', concept:'اللفظ والمعنى في مقام الفخر',
+    snip:'لَنَا الجَفَنَاتُ الغُرُّ يَلْمَعْنَ فِي الضُّحَى',
+    parts:[
+      {k:'p', x:'كَانَتْ تُضْرَبُ لِلنَّابِغَةِ الذُّبْيَانِيِّ قُبَّةٌ حَمْرَاءُ مِنْ أَدَمٍ بِسُوقِ عُكَاظٍ، فَتَأْتِيهِ الشُّعَرَاءُ فَتَعْرِضُ عَلَيْهِ أَشْعَارَهَا. فَأَنْشَدَهُ حَسَّانُ بْنُ ثَابِتٍ الأَنْصَارِيُّ:'},
+      {k:'v', s:'لَنَا الجَفَنَاتُ الغُرُّ يَلْمَعْنَ فِي الضُّحَى', e:'وَأَسْيَافُنَا يَقْطُرْنَ مِنْ نَجْدَةٍ دَمَا'},
+      {k:'v', s:'وَلَدْنَا بَنِي العَنْقَاءِ وَابْنَيْ مُحَرِّقٍ', e:'فَأَكْرِمْ بِنَا خَالًا وَأَكْرِمْ بِنَا ابْنَمَا'},
+      {k:'p', x:'فَقَالَ لَهُ النَّابِغَةُ: أَنْتَ شَاعِرٌ، وَلَكِنَّكَ أَقْلَلْتَ جِفَانَكَ وَأَسْيَافَكَ، وَفَخَرْتَ بِمَنْ وَلَدْتَ وَلَمْ تَفْخَرْ بِمَنْ وَلَدَكَ. … فَ«أَسْيَافٌ» جَمْعٌ لِأَدْنَى العَدَدِ وَالكَثِيرُ «سُيُوفٌ»، وَ«الجَفَنَاتُ» لِأَدْنَى العَدَدِ وَالكَثِيرُ «جِفَانٌ».'}
+    ],
+    src:'الموشح، للمرزباني (ص ٦٩–٧٠)؛ وخزانة الأدب، للبغدادي (٨: ١١٠–١١٢).',
+    words:[['الجَفَنَات','جمع جَفْنة، وهي القصعة الكبيرة يُقدَّم فيها الطعام.'],['الغُرّ','البيض المشرقة.'],['أَدَم','الجلد المدبوغ.'],['جمع القلة والكثرة','جمع القلة يدل على ثلاثة إلى عشرة، وجمع الكثرة على ما فوقها.'],['ابْنَم','ابن، بزيادة الميم.']],
+    q:'<p class="ans">القضية النقدية: <strong>ملاءمة اللفظ للمعنى والمقام</strong>.</p>',
+    m:'<p class="ans">المعيار: <strong>مطابقة الصياغة للمقام، ولا سيما في الفخر</strong>. فالفخر يقتضي المبالغة؛ لذلك أخذ النابغة على حسان قوله «الجَفَنَات» و«أَسْيَاف» (جمع القلة) بدل «جِفَان» و«سُيُوف» (جمع الكثرة).</p>',
+    d:[
+      '<p><strong>الحكم:</strong> أخذ النابغة على حسان مأخذين: لفظيًّا (جمع القلة)، ومعنويًّا (الفخر بمن ولدتهم النساء وترك الفخر بمن ولدوه).</p>',
+      '<ol class="steps"><li><b>نفهم الحكم:</b> النابغة لم ينكر شاعرية حسان، بل لاحظ أن ألفاظه لا تناسب مقام الفخر.</li><li class="star"><b>نقطة مهمة:</b> الحكم لا يتناول شاعرية حسان نفسها؛ لأن النابغة بدأ بقوله «أنت شاعر». وإنما يتناول اختيار الألفاظ ومدى مناسبتها للمعنى والمقام.</li><li><b>نختم:</b> هو نقدٌ سديد، لكنه يقف عند الصياغة ولا يتناول القصيدة كلها، وهو نقد ذوقٍ بسيط (ضيف).</li></ol>'
+    ],
+    refs:'المرجع: ضيف، النقد، ص ٢٦–٢٨؛ سلوم، النقد العربي القديم، ص ١٥–١٧.'
+  },
+
+  /* ───────── 3 ───────── */
+  {
+    id:'w3', title:'النابغة والنعمان بن المنذر', concept:'وضوح المعنى ومناسبته للمديح',
+    snip:'تَرَاكَ الأَرْضُ إِمَّا مِتَّ خِفًّا',
+    parts:[
+      {k:'p', x:'قَالَ النَّابِغَةُ لِلنُّعْمَانِ بْنِ المُنْذِرِ:'},
+      {k:'v', s:'تَرَاكَ الأَرْضُ إِمَّا مِتَّ خِفًّا', e:'وَتَحْيَا إِنْ حَيِيتَ بِهَا ثَقِيلَا'},
+      {k:'p', x:'فَقَالَ النُّعْمَانُ: هَذَا بَيْتٌ إِنْ لَمْ تُتْبِعْهُ بِمَا يُوَضِّحُ مَعْنَاهُ كَانَ إِلَى الهِجَاءِ أَقْرَبَ مِنْهُ إِلَى المَدِيحِ. فَأَجَّلَهُ ثَلَاثًا، فَإِنْ أَتْبَعَهُ بِمَا يُوَضِّحُ مَعْنَاهُ فَلَهُ مِائَةٌ مِنَ العَصَافِيرِ نَجَائِبَ، وَإِلَّا فَضَرْبَةٌ بِالسَّيْفِ. فَأَتَى النَّابِغَةُ زُهَيْرَ بْنَ أَبِي سُلْمَى فَأَخْبَرَهُ، فَقَالَ زُهَيْرٌ: اخْرُجْ بِنَا إِلَى البَرِّيَّةِ؛ فَإِنَّ الشِّعْرَ بَرِّيٌّ. فَخَرَجَا، فَتَبِعَهُمَا ابْنٌ لِزُهَيْرٍ يُقَالُ لَهُ كَعْبٌ … فَقَالَ كَعْبٌ: فَمَا يَمْنَعُكَ أَنْ تَقُولَ:'},
+      {k:'v', s:'وَذَاكَ بِأَنْ حَلَلْتَ العِزَّ مِنْهَا', e:'فَتَمْنَعَ جَانِبَيْهَا أَنْ يَزُولَا'},
+      {k:'p', x:'فَقَالَ النَّابِغَةُ: جَاءَ بِهَا وَرَبِّ الكَعْبَةِ! … فَأَتَى النَّابِغَةُ النُّعْمَانَ بِالبَيْتِ فَأَخَذَ مِائَةَ نَاقَةٍ سَوْدَاءِ الحَدَقَةِ.'}
+    ],
+    src:'الموشح، للمرزباني (ص ٤٨–٤٩).',
+    words:[['البَرِّيَّة','الصحراء.'],['العَصَافِير / النَّجَائِب','ضرب من الإبل الكريمة السريعة.']],
+    q:'<p class="ans">القضية النقدية: <strong>وضوح المعنى في المديح</strong>، وتجنّب اللفظ الذي يحتمل معنى الذمّ.</p>',
+    m:'<p class="ans">المعيار: <strong>وضوح الدلالة ومناسبة اللفظ للغرض</strong>؛ فالمديح ينبغي أن يكون واضحًا بحيث لا ينقلب إلى هجاء.</p>',
+    d:[
+      '<p><strong>الحكم:</strong> قال النعمان: «هذا بيت إن لم تتبعه بما يوضح معناه كان إلى الهجاء أقرب منه إلى المديح».</p>',
+      '<ol class="steps"><li><b>نفهم الحكم:</b> عبارة «خفًّا» و«ثقيلًا» قد تُفهم فهمًا مسيئًا: كأن موت الممدوح راحةٌ للأرض وحياته ثقلٌ عليها.</li><li><b>نناقش:</b> أزال بيت كعب هذا الاحتمال؛ فجعل ثقل الممدوح ثقلَ العزّ، وبه تمتنع جانبا الأرض عن الزوال، فصار المعنى مدحًا واضحًا.</li><li><b>نختم:</b> الحكم وجيه؛ لأن غاية المديح إرضاء الممدوح، فلا ينبغي أن يحتمل الذمّ. وهو في جملته نقدٌ ذوقيّ بسيط.</li></ol>'
+    ],
+    refs:'المرجع: سلوم، النقد العربي القديم، ص ١٦–١٧. ولم يرد هذا الشاهد عند ضيف.'
+  },
+
+  /* ───────── 4 ───────── */
+  {
+    id:'w4', title:'أم جندب بين امرئ القيس وعلقمة', concept:'الموازنة بين الوصفين',
+    snip:'فَلِلسَّوْطِ أُلْهُوبٌ وَلِلسَّاقِ دِرَّةٌ',
+    parts:[
+      {k:'p', x:'تَنَازَعَ امْرُؤُ القَيْسِ بْنُ حُجْرٍ وَعَلْقَمَةُ بْنُ عَبَدَةَ فِي الشِّعْرِ: أَيُّهُمَا أَشْعَرُ؟ فَقَالَ عَلْقَمَةُ: قَدْ رَضِيتُ بِامْرَأَتِكَ أُمِّ جُنْدَبٍ حَكَمًا بَيْنِي وَبَيْنَكَ. فَقَالَتْ لَهُمَا: قُولَا شِعْرًا تَصِفَانِ فِيهِ فَرَسَيْكُمَا عَلَى قَافِيَةٍ وَاحِدَةٍ وَرَوِيٍّ وَاحِدٍ. فَقَالَ امْرُؤُ القَيْسِ:'},
+      {k:'v', s:'فَلِلسَّوْطِ أُلْهُوبٌ وَلِلسَّاقِ دِرَّةٌ', e:'وَلِلزَّجْرِ مِنْهُ وَقْعُ أَخْرَجَ مُهْذِبِ'},
+      {k:'p', x:'وَقَالَ عَلْقَمَةُ:'},
+      {k:'v', s:'فَأَدْرَكَهُنَّ ثَانِيًا مِنْ عِنَانِهِ', e:'يَمُرُّ كَمَرِّ الرَّائِحِ المُتَحَلِّبِ'},
+      {k:'p', x:'فَقَالَتْ لِامْرِئِ القَيْسِ: عَلْقَمَةُ أَشْعَرُ مِنْكَ؛ لِأَنَّكَ جَهَدْتَ فَرَسَكَ بِسَوْطِكَ وَسَاقِكَ وَزَجْرِكَ، وَأَدْرَكَ عَلْقَمَةُ طَرِيدَتَهُ وَهُوَ ثَانٍ مِنْ عِنَانِ فَرَسِهِ لَمْ يَضْرِبْهُ بِسَوْطٍ وَلَا مَرَاهُ بِسَاقٍ. فَقَالَ: مَا هُوَ بِأَشْعَرَ مِنِّي وَلَكِنَّكِ لَهُ وَامِقٌ!'}
+    ],
+    src:'الموشح، للمرزباني (ص ٢٣–٢٥)؛ والشعر والشعراء، لابن قتيبة (١: ٢١٢–٢١٣).',
+    words:[['أُلْهُوب','شدة جري الفرس.'],['أَخْرَج / مُهْذِب','الأخرج: ذكر النعام؛ والمهذب: السريع.'],['العِنَان','لجام الفرس.'],['الطَّرِيدَة','ما يُطارَد من الصيد.'],['الروي','الحرف الذي تُبنى عليه القصيدة وتُنسب إليه.']],
+    q:'<p class="ans">القضية النقدية: <strong>الموازنة (المفاضلة) بين شاعرين</strong> في موضوع واحد هو وصف الفرس.</p>',
+    m:'<p class="ans">المعيار: <strong>مقارنة الأداء الفني في موضوع واحد مع توحيد شروط المقارنة</strong>: الموضوع، والروي، والقافية.</p>',
+    d:[
+      '<p><strong>وجه الحكم:</strong> فضّلت أم جندب علقمة؛ لأن فرسه أدرك الطريدة من غير ضرب ولا زجر ولا إجهاد، بينما احتاج امرؤ القيس إلى السوط والساق والزجر.</p>',
+      '<p>ولا نكتفي بترديد هذا الوجه، بل نناقشه:</p>',
+      '<ol class="steps"><li><b>التعميم من جزئية:</b> قد يكون علقمة أجود في وصف الفرس، لكن هذا لا يعني أنه أشعر من امرئ القيس في الشعر كله (ملاحظة ضيف).</li><li><b>موضوعية الناقد:</b> هل تصلح أم جندب للحكم العام على شاعرية الشاعرين؟ وقول امرئ القيس «ولكنك له وامق» (أي: محبّ) يفتح مسألة حياد الحكم النقدي.</li><li><b>نختم:</b> الحكم مفيد في مقارنة هذه الجزئية، لكنه لا يصلح حكمًا عامًّا على الشاعرين.</li></ol>'
+    ],
+    refs:'المرجع: سلوم، النقد العربي القديم، ص ١٩–٢٠؛ ضيف، النقد، ص ٢٥.'
+  },
+
+  /* ───────── 5 ───────── */
+  {
+    id:'w5', title:'«استنوق الجمل»', concept:'صحة الوصف ومطابقته للموصوف',
+    snip:'وَقَدْ أَتَنَاسَى الهَمَّ عِنْدَ احْتِضَارِهِ',
+    parts:[
+      {k:'p', x:'قَدِ اسْتَنْوَقَ الجَمَلُ: أَيْ صَارَ نَاقَةً. وَكَانَ بَعْضُ العُلَمَاءِ يُخْبِرُ أَنَّ هَذَا المَثَلَ لِطَرَفَةَ بْنِ العَبْدِ، وَيُقَالُ: إِنَّ المُنْشِدَ كَانَ المُتَلَمِّسَ، أَنْشَدَ فِي مَجْلِسٍ لِبَنِي قَيْسِ بْنِ ثَعْلَبَةَ، وَكَانَ طَرَفَةُ يَلْعَبُ مَعَ الصِّبْيَانِ وَيَتَسَمَّعُ، فَأَنْشَدَ المُتَلَمِّسُ:'},
+      {k:'v', s:'وَقَدْ أَتَنَاسَى الهَمَّ عِنْدَ احْتِضَارِهِ', e:'بِنَاجٍ عَلَيْهِ الصَّيْعَرِيَّةُ مُكْدَمِ'},
+      {k:'p', x:'وَالصَّيْعَرِيَّةُ: سِمَةٌ تُوسَمُ بِهَا النُّوقُ بِاليَمَنِ. فَلَمَّا سَمِعَ طَرَفَةُ البَيْتَ قَالَ: اسْتَنْوَقَ الجَمَلُ. … يُضْرَبُ هَذَا فِي التَّخْلِيطِ.'}
+    ],
+    src:'مجمع الأمثال، للميداني (٢: ٩٣)؛ والأمثال، لأبي عبيد (ص ١٢٩).',
+    words:[['الصَّيْعَرِيَّة','سمة تُوسَم بها النوق باليمن.'],['اسْتَنْوَق','صار الجمل ناقة؛ وهو مثل في التخليط.']],
+    q:'<p class="ans">القضية النقدية: <strong>صحة الوصف ومطابقته للموصوف</strong>.</p>',
+    m:'<p class="ans">المعيار: <strong>مطابقة الصفات للموصوف</strong> وعدم الخلط بين خصائص الذكر والأنثى. فقد عُدّ استعمال «الصيعرية» — وهي سمة للنوق — في وصف جمل تخليطًا.</p>',
+    d:[
+      '<p><strong>الحكم:</strong> قال طرفة: «استنوق الجمل»، أي صار الجمل ناقة؛ لأن الشاعر وصف جملًا بسمةٍ خاصة بالنوق.</p>',
+      '<ol class="steps"><li><b>نناقش حدود هذا النقد:</b> هل صحة المعلومات والوصف الواقعي شرطٌ في الشعر؟ عدّ سلوم هذا من «الأخطاء العلمية والمنطقية».</li><li><b>نقارن:</b> أرسطو — كما يقارن سلوم — لم يؤاخذ الشاعر على مثل هذا العيب؛ لأنه لا يدخل في ذات الفن.</li><li><b>نختم:</b> الحكم صحيح في دقة الوصف، لكنه يقف عند جزئية علمية ولا يقيس جمال الشعر كله.</li></ol>'
+    ],
+    refs:'المرجع: ضيف، النقد، ص ٢٤–٢٥؛ سلوم، النقد العربي القديم، ص ١٧–١٨.'
+  },
+
+  /* ───────── 6 ───────── */
+  {
+    id:'w6', title:'الإقواء في شعر النابغة', concept:'العيوب الفنية والصوتية',
+    snip:'أَمِنْ آلِ مَيَّةَ رَائِحٌ أَوْ مُغْتَدِي',
+    legend:'<span><em class="hl">مظلَّل</em> كلمات الروي: مكسورة في «مُزَوَّدِ» و«بِاليَدِ»، ومضمومة في «الأَسْوَدُ» و«يُعْقَدُ»</span>',
+    parts:[
+      {k:'p', x:'حَدَّثَنِي إِبْرَاهِيمُ بْنُ شِهَابٍ، قَالَ: حَدَّثَنَا الفَضْلُ بْنُ الحُبَابِ، عَنْ مُحَمَّدِ بْنِ سَلَّامٍ، قَالَ: لَمْ يُقْوِ أَحَدٌ مِنَ الطَّبَقَةِ الأُولَى وَلَا مِنْ أَشْبَاهِهِمْ إِلَّا النَّابِغَةُ فِي بَيْتَيْنِ، قَوْلُهُ:'},
+      {k:'v', s:'أَمِنْ آلِ مَيَّةَ رَائِحٌ أَوْ مُغْتَدِي', e:'عَجْلَانَ ذَا زَادٍ وَغَيْرَ <em class="hl">مُزَوَّدِ</em>'},
+      {k:'v', s:'زَعَمَ البَوَارِحُ أَنَّ رِحْلَتَنَا غَدًا', e:'وَبِذَاكَ خَبَّرَنَا الغُرَابُ <em class="hl">الأَسْوَدُ</em>'},
+      {k:'p', x:'وَقَوْلُهُ:'},
+      {k:'v', s:'سَقَطَ النَّصِيفُ وَلَمْ تُرِدْ إِسْقَاطَهُ', e:'فَتَنَاوَلَتْهُ وَاتَّقَتْنَا <em class="hl">بِاليَدِ</em>'},
+      {k:'v', s:'بِمُخَضَّبٍ رَخْصٍ كَأَنَّ بَنَانَهُ', e:'عَنَمٌ يَكَادُ مِنَ اللَّطَافَةِ <em class="hl">يُعْقَدُ</em>'},
+      {k:'p', x:'العَنَمُ: نَبْتٌ أَحْمَرُ يُصْبَغُ بِهِ.'},
+      {k:'p', x:'فَقَدِمَ المَدِينَةَ، فَعِيبَ ذَلِكَ عَلَيْهِ، فَلَمْ يَأْبَهْ لَهُ حَتَّى أَسْمَعُوهُ إِيَّاهُ فِي غِنَاءٍ — وَأَهْلُ القُرَى أَلْطَفُ نَظَرًا مِنْ أَهْلِ البَدْوِ، وَكَانُوا يَكْتُبُونَ لِجِوَارِهِمْ أَهْلِ الكِتَابِ — فَقَالُوا لِلْجَارِيَةِ: إِذَا صِرْتِ إِلَى القَافِيَةِ فَرَتِّلِي. فَلَمَّا قَالَتْ: «الغُرَابُ الأَسْوَدُ» وَ«بِاليَدِ» عَلِمَ فَانْتَبَهَ، فَلَمْ يَعُدْ فِيهِ، وَقَالَ: قَدِمْتُ الحِجَازَ وَفِي شِعْرِي صَنْعَةٌ، وَرَحَلْتُ عَنْهَا وَأَنَا أَشْعَرُ النَّاسِ.'}
+    ],
+    src:'الموشَّح في مآخذ العلماء على الشعراء، للمرزباني (ت ٣٨٤ هـ) (ص ٣٨).',
+    words:[['الإقواء','مخالفة بين حركات الروي في القصيدة، كأن يُكسر في بيت ويُضمّ في آخر.'],['الروي','الحرف الذي تُبنى عليه القصيدة وتُنسب إليه.'],['رَائِح / مُغْتَدٍ','الرائح: الذي يسير عشيّةً؛ والمغتدي: الذي يسير غدوةً.'],['البَوَارِح','طيور كانوا يتطيّرون بها، ومثلها الغراب.'],['النَّصِيف','الخِمار؛ ما تغطّي به المرأة رأسها.'],['العَنَم','نبت أحمر يُصبغ به.'],['التَّرتيل','التمهّل في الأداء وتبيين الحروف والحركات.']],
+    q:'<p class="ans">القضية النقدية: <strong>العيوب الفنية والصوتية في الشعر</strong>، وبخاصة <strong>الإقواء</strong>.</p>',
+    m:'<p class="ans">المعيار: <strong>سلامة القافية وائتلاف حركات الروي</strong>.</p><p>والإقواء مخالفة حركة الروي في القصيدة؛ كما وقع في كسر الدال في «مُغْتَدِي» و«مُزَوَّدِ» وضمّها في «الأَسْوَدُ».</p>',
+    d:[
+      '<p><strong>الحكم:</strong> قال ابن سلّام: لم يُقوِ أحد من الطبقة الأولى إلا النابغة في بيتين.</p>',
+      '<ol class="steps"><li><b>نفهم الشاهد:</b> لم ينتبه النابغة للعيب حتى أسمعه أهل المدينة شعره مغنًّى، وأمروا الجارية بالترتيل عند القافية؛ فظهر الخلل، فانتبه ولم يعد إلى الإقواء.</li><li><b>نناقش الإنشاد والغناء:</b> يذكر سلوم أن أهل المدينة أهلُ غناء وترتيل وكتابة للشعر؛ فالغناء والترتيل يُظهران حركة القافية، فيسهل اكتشاف العيب.</li><li><b>نختم:</b> يدلّ ذلك على تطوّر مبكر في ملاحظة الجانب الصوتي للشعر.</li></ol>'
+    ],
+    refs:'المرجع: ضيف، النقد، ص ٢٤؛ سلوم، النقد العربي القديم، ص ٢٠–٢٢.'
+  }
+
+  ];
+
+  /* ───────── واجهة ───────── */
+  var $ = function(id){return document.getElementById(id);};
+  var grid=$('grid'), panel=$('panel'), empty=$('empty');
+  var cur=-1;
+
+  // سلّم التنقيط في بطاقة الامتحان
+  $('scheme').innerHTML = ITEMS.map(function(i){
+    return '<li><span>'+i.t+'</span><span class="mark">'+i.mark+' من '+TOTAL+'</span></li>';
+  }).join('');
+  $('sum-mark').textContent = TOTAL+' من '+TOTAL;
+
+  // بطاقات الشواهد
+  W.forEach(function(w,idx){
+    var b=document.createElement('button');
+    b.type='button'; b.className='card'; b.id='card-'+w.id;
+    b.setAttribute('aria-pressed','false'); b.setAttribute('aria-controls','panel');
+    b.innerHTML =
+      '<span class="top"><span class="num">'+(idx+1)+'</span>'+
+      '<span><span class="name">'+w.title+'</span><br><span class="tag">'+w.concept+'</span></span></span>'+
+      '<span class="snip">'+w.snip+' …</span>'+
+      '<span class="go">اعرض الإجابة والعلامة ◂</span>';
+    b.addEventListener('click',function(){ if(cur===idx){ closePanel(); } else { openPanel(idx,true); } });
+    grid.appendChild(b);
+  });
+
+  function renderParts(parts){
+    return parts.map(function(p){
+      if(p.k==='cap') return '<p class="cap">'+p.x+'</p>';
+      if(p.k==='p')   return '<p class="quote">'+p.x+'</p>';
+      if(p.k==='v')   return '<div class="verse"><span class="'+(p.a||'')+'">'+p.s+'</span><span class="'+(p.b||'')+'">'+p.e+'</span></div>';
+      return '';
+    }).join('');
+  }
+
+  function itemHead(i){
+    return '<div class="ihead"><span class="n">'+(i+1)+'</span><h3>'+ITEMS[i].t+'</h3>'+
+           '<span class="mark">'+ITEMS[i].mark+' من '+TOTAL+'</span></div>';
+  }
+
+  function wordsHtml(w){
+    if(!w.words || !w.words.length) return '';
+    return '<details class="words"><summary>معاني الكلمات الصعبة</summary><dl>'+
+      w.words.map(function(x){ return '<dt>'+x[0]+'</dt><dd>'+x[1]+'</dd>'; }).join('')+'</dl></details>';
+  }
+
+  function buildPanel(idx){
+    var w=W[idx];
+    var legend = w.legend ? '<div class="legend">'+w.legend+'</div>' : '';
+    var hasEl = w.parts.some(function(p){ return (p.x||'').indexOf('…')>-1; });
+    var h='';
+    h+='<div class="phead"><div><div class="eyebrow">الشاهد '+(idx+1)+' من '+W.length+'</div>'+
+       '<h2 id="ptitle">'+w.title+'</h2><div class="concept">'+w.concept+'</div></div>'+
+       '<div class="chip-total"><b>'+TOTAL+' / '+TOTAL+'</b><span>مجموع العلامات</span></div></div>';
+
+    h+='<section class="item">'+itemHead(0)+
+       '<p class="hint">الشاهد النقدي كاملًا كما يُحفظ، مضبوطًا بالشكل.</p>'+
+       '<div class="shahid">'+renderParts(w.parts)+legend+'<div class="src">المصدر: '+w.src+(hasEl?' — العلامة (…) تدلّ على موضع حذف من النص الأصلي.':'')+'</div></div>'+wordsHtml(w)+'</section>';
+
+    h+='<section class="item">'+itemHead(1)+w.q+'</section>';
+
+    h+='<section class="item">'+itemHead(2)+w.m+'</section>';
+
+    h+='<section class="item">'+itemHead(3)+'<p class="tip">كيف أكتب المناقشة؟ أفهم الحكم، ثم أناقشه بنقطتين، ثم أختم بجملة.</p>'+w.d.join('')+
+       '<div class="refs">'+w.refs+'</div></section>';
+
+    h+='<div class="total"><span class="eq">'+SUMSTR+' =</span><span><b>'+TOTAL+'</b> من '+TOTAL+'</span></div>';
+
+    h+='<div class="pnav"><div class="grp">'+
+       '<button type="button" class="btn" id="prev"'+(idx===0?' disabled':'')+'>▸ الشاهد السابق</button>'+
+       '<button type="button" class="btn" id="next"'+(idx===W.length-1?' disabled':'')+'>الشاهد التالي ◂</button></div>'+
+       '<div class="grp"><button type="button" class="btn" id="print">طباعة</button>'+
+       '<button type="button" class="btn" id="hide">إخفاء الإجابة</button></div></div>';
+    return h;
+  }
+
+  function openPanel(idx,scroll){
+    cur=idx;
+    panel.innerHTML=buildPanel(idx);
+    panel.setAttribute('aria-labelledby','ptitle');
+    panel.hidden=false; empty.hidden=true;
+    W.forEach(function(w,i){ $('card-'+w.id).setAttribute('aria-pressed', i===idx?'true':'false'); });
+    $('prev').onclick=function(){ openPanel(idx-1,true); };
+    $('next').onclick=function(){ openPanel(idx+1,true); };
+    $('hide').onclick=closePanel;
+    $('print').onclick=function(){ window.print(); };
+    try{ history.replaceState(null,'','#'+W[idx].id); }catch(e){}
+    if(scroll){
+      var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      panel.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+      panel.focus({preventScroll:true});
+    }
+  }
+
+  function closePanel(){
+    cur=-1; panel.hidden=true; panel.innerHTML=''; empty.hidden=false;
+    W.forEach(function(w){ $('card-'+w.id).setAttribute('aria-pressed','false'); });
+    try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+  }
+
+  function fromHash(scroll){
+    var id=(location.hash||'').replace('#','');
+    var i=W.findIndex(function(w){return w.id===id;});
+    if(i>=0 && i!==cur) openPanel(i,scroll);
+  }
+
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && cur>=0) closePanel(); });
+  window.addEventListener('hashchange',function(){ fromHash(true); });
+  fromHash(false);
+})();
+</script>
+</body>
+</html>
